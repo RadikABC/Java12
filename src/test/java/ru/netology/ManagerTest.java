@@ -38,7 +38,7 @@ public class ManagerTest {
         Assertions.assertArrayEquals(expected, actual);
     }
     @Test
-    public void findLastLimit() {
+    public void findLast3Limit7Films() {
         Manager film = new Manager(3);
 
         film.addFilm("Бладшот");
@@ -50,6 +50,29 @@ public class ManagerTest {
         film.addFilm("Номер один");
 
         String[] expected = {"Номер один", "Тролли. Мировой тур", "Человек-невидимка" };
+        String[] actual = film.findLast();
+        Assertions.assertArrayEquals(expected, actual);
+    }
+    @Test
+    public void findLast3Limit2Films() {
+        Manager film = new Manager(3);
+
+        film.addFilm("Бладшот");
+        film.addFilm("Вперёд");
+
+        String[] expected = {"Вперёд", "Бладшот"};
+        String[] actual = film.findLast();
+        Assertions.assertArrayEquals(expected, actual);
+    }
+    @Test
+    public void findLast3Limit3Films() {
+        Manager film = new Manager(3);
+
+        film.addFilm("Бладшот");
+        film.addFilm("Вперёд");
+        film.addFilm("Отель Белград");
+
+        String[] expected = {"Отель Белград", "Вперёд", "Бладшот"};
         String[] actual = film.findLast();
         Assertions.assertArrayEquals(expected, actual);
     }
